@@ -55,7 +55,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env*
 
 # build folder
 public
@@ -67,3 +67,6 @@ public
 .contentful.json
 # Local Netlify folder
 .netlify
+
+#personal memorandum folder
+how-this-works
