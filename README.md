@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5e2ad681-bf2c-495b-8225-60b08ecd8344/deploy-status)](https://app.netlify.com/sites/dazzling-noyce-9c1b92/deploys)
+
 # Contentful Gatsby Starter Blog
 
 Create a [Gatsby](http://gatsbyjs.com/) blog powered by [Contentful](https://www.contentful.com). This is a simplified version of the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter) which is maintained by our Community.
