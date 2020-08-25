@@ -1,4 +1,6 @@
-require("dotenv").config({
+let { createProxyMiddleware } = require('http-proxy-middleware');
+
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
@@ -19,22 +21,31 @@ const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    "Contentful spaceId and the access token need to be provided."
+    'Contentful spaceId and the access token need to be provided.'
   );
 }
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: 'Gatsby Contentful starter',
   },
-  pathPrefix: "/gatsby-contentful-starter",
+  developMiddleware: (app) => {
+    app.use(
+      '/.netlify/functions/',
+      createProxyMiddleware({
+        target: 'http://localhost:9000',
+        pathRewrite: { '/.netlify/functions/': '' },
+      })
+    );
+  },
+  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    "gatsby-transformer-remark",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
   ],

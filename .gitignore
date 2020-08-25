@@ -68,5 +68,8 @@ public
 # Local Netlify folder
 .netlify
 
-#personal memorandum folder
+# runtime config
+config.js
+
+# personal memorandum folder
 how-this-works
